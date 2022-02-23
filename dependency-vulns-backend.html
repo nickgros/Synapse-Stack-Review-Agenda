@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Weekly Stack Review</title>
+	<link rel="icon" type="image/png"  href="https://www.synapse.org/favicon.png?v=3" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    
+	body {
+		font-size: 22px;
+		line-height: 35px;
+		margin: 20px;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.get("./repositories.json").done(function(data) {
+				$("#repos").html(data.map(function(repo) {
+					return "<li><a href='https://github.com/" + repo + "'>" + repo + "</a></li>";
+				}).join(""));
+		});
+	});
+
+</script>
+</head>
+<body>
+	<h1>Dependency Alert Meeting Checklist</h1>
+	<hr />
+	<ol>
+		<li> Verify that the list of repositories is accurate.</li>
+		<li> Check for Dependabot alerts on each repository. Create JIRA tickets as needed, and dismiss the alert once it has been addressed.</li>
+	</ol>
+	<ul id="repos">
+	</ul>
+</body>
+</html>
