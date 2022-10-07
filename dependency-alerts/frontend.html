@@ -27,7 +27,10 @@
 	
 	$(document).ready(function() {
 		$("#jsonGithubLink").attr("href", jsonDataGithubLink);
-		fetchReposAndInjectRows(jsonDataUrl, "#repos");
+		fetchRepos(jsonDataUrl, function (data) {
+			injectRows(data, "#repos")
+			addOpenAllReposLink(data, "openAllRepos")
+		});
 	});
 </script>
 </head>
@@ -38,6 +41,7 @@
 		<li> Verify that the list of repositories is accurate. If inaccurate, update <a id="jsonGithubLink">the JSON file</a>.</li>
 		<li> Check for Dependabot alerts on each repository. Create Jira tickets as needed, and dismiss the alert in GitHub once it has been addressed.</li>
 	</ol>
+	<p id="openAllRepos"></p>
 	<table >
 		<thead>
 		<tr>
