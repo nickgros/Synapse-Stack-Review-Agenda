@@ -1,0 +1,54 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Dependency Alert Review</title>
+	<link rel="icon" type="image/png"  href="https://www.synapse.org/favicon.png?v=3" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    
+	body {
+		font-size: 22px;
+		line-height: 35px;
+		margin: 20px;
+	}
+
+	td {
+		padding-top: 5px;
+		padding-right: 10px;
+	}
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="./scripts.js"></script>
+<script type="text/javascript">
+	const jsonDataGithubLink = "https://github.com/Sage-Bionetworks/Synapse-Stack-Review-Agenda/blob/gh-pages/dependency-alerts/it-repos.json"
+	const jsonDataUrl = "./it-repos.json";
+	$(document).ready(function() {
+		$("#jsonGithubLink").attr("href", jsonDataGithubLink);
+		fetchRepos(jsonDataUrl, function (data) {
+			injectRows(data, "#repos")
+			addOpenAllReposLink(data, "openAllRepos")
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>Dependency Alert Meeting Checklist (IT)</h1>
+	<hr />
+	<ol>
+		<li> Verify that the list of repositories is accurate. If inaccurate, update <a id="jsonGithubLink">the JSON file</a>.</li>
+		<li> Check for Dependabot alerts on each repository. Create Jira tickets as needed, and dismiss the alert in GitHub once it has been addressed.</li>
+	</ol>
+	<p id="openAllRepos"></p>
+	<table >
+		<thead>
+		<tr>
+			<th style="text-align: left;">Repository</th>
+			<th style="text-align: center;">Alerts Checked?</th>
+		</tr>
+	</thead>
+	<tbody id="repos"></tbody>
+	</table>
+</body>
+</html>
