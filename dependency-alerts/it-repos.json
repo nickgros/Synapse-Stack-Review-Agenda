@@ -27,5 +27,6 @@
   "Sage-Bionetworks/synapse-login-aws-infra",
   "Sage-Bionetworks/synapse-login-scipool",
   "Sage-Bionetworks/s3-synapse-sync",
-  "Sage-Bionetworks/aws-alb-synapse-oidc"
+  "Sage-Bionetworks/aws-alb-synapse-oidc",
+  "Sage-Bionetworks-IT/lambda-mips-api"
 ]
