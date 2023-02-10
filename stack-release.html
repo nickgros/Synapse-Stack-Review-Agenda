@@ -80,18 +80,9 @@
 						"SWC develop does not contain all patches to staging."
 					);
 
-					compareDiffAndUpdateElement(
-						"src_dev_vs_main",
-						"synapse-react-client",
-						"main",
-						"develop",
-						"synapse-react-client main contains all changes in develop.",
-						"synapse-react-client main does not contain all changes in develop."
-					)
-
 					$.getJSON("https://raw.githubusercontent.com/Sage-Bionetworks/SynapseWebClient/develop/package.json").done(function(synapseWebPackageJson){
 						const synapseReactClientVersionInSwc = synapseWebPackageJson.dependencies['synapse-react-client']
-						$.getJSON("https://raw.githubusercontent.com/Sage-Bionetworks/Synapse-React-Client/main/package.json").done(function(synapseReactClientPackageJson){
+						$.getJSON("https://raw.githubusercontent.com/Sage-Bionetworks/synapse-web-monorepo/main/packages/synapse-react-client/package.json").done(function(synapseReactClientPackageJson){
 							const synapseReactClientLatestVersion = synapseReactClientPackageJson.version
 							if (synapseReactClientVersionInSwc === synapseReactClientLatestVersion) {
 								document.getElementById("src_version_in_swc").style="color:green;";
@@ -100,6 +91,16 @@
 								document.getElementById("src_version_in_swc").style="color:red;";
 								document.getElementById("src_version_in_swc").innerHTML="SWC develop is not using the latest version of synapse-react-client (using: " + synapseReactClientVersionInSwc + ", latest: " + synapseReactClientLatestVersion + ").";
 							}
+
+							compareDiffAndUpdateElement(
+								"src_latest_tag_vs_main",
+								"synapse-web-monorepo",
+								"main",
+								`synapse-react-client/v${synapseReactClientLatestVersion}`,
+								"Latest synapse-react-client contains all changes in main.",
+								"Latest synapse-react-client does not contain all changes in main."
+							)
+							document.getElementById('src_latest_tag_vs_main').href=`https://github.com/Sage-Bionetworks/synapse-web-monorepo/compare/${synapseReactClientLatestVersion}...Sage-Bionetworks:main`;
 						})
 					});
 
@@ -169,7 +170,7 @@
 		<li> <a href="https://github.com/Sage-Bionetworks/Synapse-Repository-Services/compare/develop...Sage-Bionetworks:release-#staging#?expand=1" id=plfm_dev_vs_staging style="color:goldenrod;">Checking if PLFM staging merged into develop...</a></li>
 		<li> <a href="https://github.com/Sage-Bionetworks/SynapseWebClient/compare/release-#staging#...Sage-Bionetworks:release-#prod#?expand=1" id=swc_staging_vs_prod style="color:goldenrod;">Checking if SWC prod merged into staging...</a></li>
 		<li> <a href="https://github.com/Sage-Bionetworks/SynapseWebClient/compare/develop...Sage-Bionetworks:release-#staging#?expand=1" id=swc_dev_vs_staging style="color:goldenrod;">Checking if SWC staging merged into develop...</a></li>
-		<li> <a href="https://github.com/Sage-Bionetworks/Synapse-React-Client/compare/main...Sage-Bionetworks:develop#?expand=1" id=src_dev_vs_main style="color:goldenrod;">Checking if synapse-react-client develop merged into main...</a></li>
+		<li> <a href="https://github.com/Sage-Bionetworks/synapse-web-monorepo/compare/unknown...Sage-Bionetworks:main" id=src_latest_tag_vs_main style="color:goldenrod;">Checking if the latest synapse-react-client tag include all changes from main...</a></li>
 		<li> <a href="https://github.com/Sage-Bionetworks/SynapseWebClient/blob/develop/package.json" id=src_version_in_swc style="color:goldenrod;">Checking SWC develop for latest version of synapse-react-client...</a></li>
 		</ul> 
 		</li>

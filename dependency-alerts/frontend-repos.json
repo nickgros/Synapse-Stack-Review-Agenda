@@ -1,8 +1,6 @@
 [
-  "Sage-Bionetworks/portals",
-  "Sage-Bionetworks/Synapse-React-Client",
+  "Sage-Bionetworks/synapse-web-monorepo",
   "Sage-Bionetworks/synapse-oauth-signin",
-  "Sage-Bionetworks/markdown-it-synapse-server",
   "Sage-Bionetworks/markdown-it-synapse",
   "Sage-Bionetworks/SynapseWebClient",
   "Sage-Bionetworks/GwtVisualizationWrappers",
