@@ -15,5 +15,6 @@
   "Sage-Bionetworks/ChallengeDockerAgent",
   "Sage-Bionetworks/csv-utilities",
   "Sage-Bionetworks/QuizTextToJSONConverter",
-  "Sage-Bionetworks/url-signer"
+  "Sage-Bionetworks/url-signer",
+  "Sage-Bionetworks/Synapse-ETL-Jobs"
 ]
