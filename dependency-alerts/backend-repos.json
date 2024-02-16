@@ -1,7 +1,6 @@
 [
   "Sage-Bionetworks/Synapse-Repository-Services",
   "Sage-Bionetworks/Synapse-Stack-Builder",
-  "Sage-Bionetworks/Synapse-Warehouse-Workers",
   "Sage-Bionetworks/worker-utilities",
   "Sage-Bionetworks/Synapse-Migration-Utility",
   "Sage-Bionetworks/SynapseWorkflowOrchestrator",
