@@ -29,5 +29,6 @@
   "Sage-Bionetworks-IT/lambda-finops-cost-rules",
   "Sage-Bionetworks-IT/lambda-finops-email-totals",
   "Sage-Bionetworks-IT/notebook-reverse-proxy",
-  "Sage-Bionetworks-IT/rstudio-service-catalog"
+  "Sage-Bionetworks-IT/rstudio-service-catalog",
+  "Sage-Bionetworks-IT/lambda-ec2-terminator"
 ]
